@@ -1,4 +1,6 @@
-
+* {
+    background-color: transparent;
+}
 body {
     /* feel free to update these css variables for a quick theme */
     
@@ -29,6 +31,8 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-image: url('../assets/castle.jpeg');
+    background-size: cover;
 }
 
 main {
@@ -40,7 +44,7 @@ main {
 }
 
 section {
-    background-color: var(--color5);
+    /* background-color: var(--color5); */
     max-width: 80%;
     display: flex;
     flex-direction: column;
@@ -50,7 +54,7 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
+    /* border: solid 2px var(--color1); */
 }
 
 header {
@@ -88,4 +92,12 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.player-stat_S {
+    font-size: 2rem;
+}
+
+.jake img {
+    width: 250px;
 }
