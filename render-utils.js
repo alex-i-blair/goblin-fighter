@@ -6,16 +6,17 @@ export function renderGoblin(gobData) {
 
     goblinEl.classList.add('goblin');
     name.textContent = gobData.name;
+    hp.textContent = gobData.hp;
     if (gobData.hp > 0) {
         gobImg.src = './assets/goblin.png';
     }
     else {
-        gobImg.scr = './assets/goblin.jpeg';
+        gobImg.scr = './assets/dead.jpeg';
         goblinEl.classList.add('dead');
     }
 
     goblinEl.append(name, gobImg, hp);
-    console.log(goblinEl);
+    // console.log(goblinEl);
     return goblinEl;
 
 }

@@ -2,9 +2,8 @@
 import { hpMath, attackMath } from './utils.js';
 import { renderGoblin } from './render-utils.js';
 
-const playerHpEL = document.querySelector('#player-hp');
-const goblin__El = document.querySelector('#goblin__');
-const goblinHpEl = document.querySelector('#goblin-hp');
+const playerHpEl = document.querySelector('#player-hp');
+const goblin__El = document.querySelector('.goblin__');
 const defeatedGoblin__El = document.querySelector('#defeated-goblin__');
 const defeatedNumEl = document.querySelector('#defeated-num');
 const adventurerImgEl = document.querySelector('#jake-img');
@@ -12,7 +11,9 @@ const form = document.querySelector('form');
 // let state
 
 let playerHp = 100;
+playerHpEl.textContent = playerHp;
 let defeatedGoblinCount = 0;
+defeatedNumEl.textContent = defeatedGoblinCount;
 let goblin__arr = [
     {
         name: 'Fred',
@@ -40,7 +41,7 @@ form.addEventListener('submit', (e) => {
 });
 
 function displayGoblin__() {
-    // goblin__El.textContent = '';
+    goblin__El.textContent = '';
     for (let goblin of goblin__arr) {
         const goblinEl = renderGoblin(goblin);
         
@@ -51,16 +52,21 @@ function displayGoblin__() {
                 playerHp = playerHp - damage.selfDamage;
                 goblin__arr.hp = goblin__arr.hp - damage.attackDamage;
 
+                if (goblin.hp === 0) {
+                    defeatedGoblinCount++;
+                }
+                if (playerHp === 0) {
+                    adventurerImgEl.classList.add('game-over');
+                    alert('YOU DIED!\nGame Over');
+                }
+                console.log(goblinEl);
+                playerHpEl.textContent = playerHp;
+                defeatedGoblin__El.textContent = defeatedGoblinCount;
+                displayGoblin__();
             });
-            if (goblin.hp === 0) {
-                defeatedGoblinCount++;
-            }
-            if (playerHp === 0) {
-                adventurerImgEl.classList.add('game-over');
-                alert('YOU DIED!\nGame Over');
-            }
         } 
         goblin__El.append(goblinEl);
+        
     }
 }
 displayGoblin__();
