@@ -50,7 +50,7 @@ function displayGoblin__() {
                 
                 let damage = attackMath();
                 playerHp = playerHp - damage.selfDamage;
-                goblin__arr.hp = goblin__arr.hp - damage.attackDamage;
+                goblin.hp = goblin.hp - damage.attackDamage;
 
                 if (goblin.hp === 0) {
                     defeatedGoblinCount++;
@@ -62,6 +62,7 @@ function displayGoblin__() {
                 console.log(goblinEl);
                 playerHpEl.textContent = playerHp;
                 defeatedGoblin__El.textContent = defeatedGoblinCount;
+
                 displayGoblin__();
             });
         } 
