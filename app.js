@@ -1,12 +1,12 @@
 // import functions and grab DOM elements
 import { hpMath, attackMath } from './utils.js';
-import { renderGoblin } from './render-utils.js';
+import { renderGoblin, deathAlert } from './render-utils.js';
 
 const playerHpEl = document.querySelector('#player-hp');
 const goblin__El = document.querySelector('.goblin__');
-const defeatedGoblin__El = document.querySelector('#defeated-goblin__');
+// const defeatedGoblin__El = document.querySelector('#defeated-goblin__');
 const defeatedNumEl = document.querySelector('#defeated-num');
-const adventurerImgEl = document.querySelector('#jake-img');
+const adventurerImgEl = document.querySelector('#jake');
 const form = document.querySelector('form');
 // let state
 
@@ -52,16 +52,19 @@ function displayGoblin__() {
                 playerHp = playerHp - damage.selfDamage;
                 goblin.hp = goblin.hp - damage.attackDamage;
 
-                if (goblin.hp === 0) {
+                if (goblin.hp <= 0) {
                     defeatedGoblinCount++;
+                    goblin.hp = 0;
+                    deathAlert(`${goblin.name} has been defeated`);
                 }
-                if (playerHp === 0) {
+                if (playerHp <= 0) {
+                    playerHp = 0;
                     adventurerImgEl.classList.add('game-over');
-                    alert('YOU DIED!\nGame Over');
+                    deathAlert('YOU DIED!\nGame Over');
                 }
-                console.log(goblinEl);
+                // console.log(goblinEl);
                 playerHpEl.textContent = playerHp;
-                defeatedGoblin__El.textContent = defeatedGoblinCount;
+                defeatedNumEl.textContent = defeatedGoblinCount;
 
                 displayGoblin__();
             });

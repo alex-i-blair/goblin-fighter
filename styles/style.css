@@ -1,6 +1,4 @@
-* {
-    background-color: transparent;
-}
+
 body {
     /* feel free to update these css variables for a quick theme */
     
@@ -47,7 +45,7 @@ section {
     /* background-color: var(--color5); */
     max-width: 80%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding-top: var(--gutter);
@@ -94,10 +92,70 @@ footer {
     box-shadow: var(--shadow);
 }
 
-.player-stat_S {
+
+.player-stat__ {
     font-size: 2rem;
+    font-weight: bold;
+    justify-content: end;
+    color: black;
+    background-color: rgba(255, 255, 240, 0.543);
+    border-radius: 5px;
+    margin-right: 100px;
 }
 
 .jake img {
     width: 250px;
+}
+
+.goblin__ {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin-left: 100px;
+}
+.goblin {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.564);
+    border: black solid 1px;
+    margin-bottom: 10px;
+    color: chartreuse;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.goblin img {
+    width: 200px;
+    padding: 0;
+    margin: 0;
+}
+
+.goblin p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.game-over {
+    transform: rotate(270deg);
+}
+
+.damage-alert {
+    border: solid 4px green;
+    width: auto;
+    height: auto;
+    background-color: gray;
+    color: wheat;
+    margin-top: -90px;
+}
+
+.death-alert {
+    border: solid 4px green;
+    width: auto;
+    height: auto;
+    background-color: gray;
+    color: wheat;
+    margin-top: -700px;
 }
